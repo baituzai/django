@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .main-view{
+            display:block;
+            margin:0 auto;
+            width:80%;
+            height:200px;
+            background-color: ghostwhite;
+        }
+        .msg-creat{
+            display:block;
+            position: absolute;
+            bottom:0;
+            right:0;
+            width:400px;
+            height: 200px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+
+    
+<h3>test</h3>
+
+<div class="main-view">
+    <div class="msg-list">
+        <div class="msg-list-view"></div>
+            {% if msg_list %}
+                {% for msg in msg_list %}
+                    <li>
+                        <div class="header-ly">
+                            <span>{{msg.index}}楼</span><span>{{msg.datetime}}</span>
+                        </div>
+                        <p>{{msg.content}}</p>
+                    </li>
+                {% endfor %}
+            {% else %}
+                <p>暂无评论</p>
+            {%endif%} 
+    </div>
+</div>
+<!-- 
+    form 里面的 method 是用来指明向后台存数据时候的请求是什么类型的请求，这里用的是 post 请求，action 就是我们刚刚定义的存数据的接口地址，messageboard 是来指明那个应用下的地址。
+    csrf_token 这个是 post 请求需要带的一个定义，防止跨域，攻击。
+    textarea 就是我们输入框，这里的属性 name值要与 views.py 中的 request.POST[‘content’] 保持一致。button 就是当你点提交的时候，浏览器就开始发post 请求把 textarea 中的内容存到数据库中。
+ -->
+<div class="msg-creat">
+    <div class="title">添加留言</div>
+    <div class="msg-create-view">
+        <form method="post" action="/mesboard/msg/create/">
+            {% csrf_token %}
+            <textarea name="content">
+
+            </textarea>
+            <div class="btn" style="text-align: center; margin-top:20px;">
+                <button style="width:100px; height: 40px;">提交</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+</body>
+</html>
