@@ -1,21 +1,22 @@
-### Django服务器开发
+### Django服务器开发之留言板项目
 <p>很多网站使用Django作为框架进行搭建，非常适合内容管理的场景。</p>
 
-#### 项目目录
+#### 1项目目录
 
-#####  1. django 项目环境
-#####  2. 留言板应用
-#####  3. 模型表Model
-#####  4. 视图 View
+#####  1.1. django 项目环境
+#####  1.2. 留言板应用
+#####  1.3. 模型表Model
+#####  1.4. 视图 View
 
-##### 第一节 安装环境
-###### 1.1 安装python
-windows 下Python 安装及pip 安装，环境变量配置，按照 https://pypi.python.org/pypi/pip#downloads 这个文档步骤来就行了。
-检测python是否安装成功（本文使用python3.6版）
+#####  1.1. django 项目环境
+本文使用 linux 64位 ubuntu18.04版本 python3.6.6版本
+###### 1.1.1 安装python
+linux 系统自带python2.7环境，本文使用python3.6.6版本
 ```bash
 python -v
 ```
-###### 1.2 安装Django
+###### 1.1.2 安装Django
+在python环境下，安装django
 打开命令行终端工具，执行 
 ```bash
 pip install django
